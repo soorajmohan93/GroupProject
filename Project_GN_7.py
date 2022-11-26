@@ -1,27 +1,35 @@
+'''
+File name: Project_GN_7.py
+Date created: 25 November 2022
+Author: Group 7 - Sooraj Mohan (Student Number: 8842423), Pranav Manikandas
 
+Purpose: 
+Group Project Work for IT Automation INFO8025
+This python script is a arithemetic calculator to perform operations on two numbers. It can handle divide by zero exceptions/
+'''
 # Functions for arithmetic operations
 # Function to Add
 def add(first, second):
-    return f"Here is the result: {first} + {second} = {round(first + second,2)}"
+    return "+", round(first + second,2)
 
 # Function to Subtract
 def substract(first, second):
-    return f"Here is the result: {first} - {second} = {round(first-second,2)}"
+    return "-", round(first-second,2)
 
 # Function to Multiply
 def multiply(first, second):
-    return f"Here is the result: {first} X {second} = {round(first * second,2)}"
+    return "X", round(first * second,2)
 
 # Function to Divide - return Zero Division error exception when divided by zero
 def divide(first, second):
     try: 
-        return f"Here is the result: {first} / {second} = {round(first/second,2)}"
+        return "÷", round(first/second,2)
     except ZeroDivisionError: 
-        return ZeroDivisionError("Cannot Divide by Zero!")
+        return None, ZeroDivisionError
     
 
 
-print("\n------------------------------------------------------\n--------------------- CALCULATOR APP -----------------\n------------------------------------------------------\n")
+print("\n--------------------------------------------------\n----------------- CALCULATOR APP -----------------\n--------------------------------------------------\n")
 userChoice = input("Select An Operation\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n\nYour Choice (1, 2, 3 or 4): ")
 
 try:
@@ -39,15 +47,21 @@ while numberCheck:
         secondNumber = float(input("Enter second number: "))
         numberCheck = False
     except ValueError:
-        print("The program is expecting two numeric values!")
+        print("The program is expecting two numeric values! Please Try Again with Whole or decimal numbers.")
 
+print("\n--------------------------------------------------\n")
 if userChoiceInt == 1:
-    print(add(firstNumber,secondNumber))
+    operation, result = add(firstNumber, secondNumber)
 elif userChoiceInt == 2:
-    print(substract(firstNumber,secondNumber))
+    operation, result = substract(firstNumber,secondNumber)
 elif userChoiceInt == 3:
-    print(multiply(firstNumber,secondNumber))
+    operation, result = multiply(firstNumber,secondNumber)
 elif userChoiceInt == 4:
-    print(divide(firstNumber, secondNumber))
+    operation, result = divide(firstNumber, secondNumber)
+    if result == ZeroDivisionError:
+        print("Exception Occurred: Cannot Divide By Zero!")
+        exit()
 
-
+print("Here is your result: {0} {1} {2} = {3}".format(round(firstNumber,2), operation, round(secondNumber,2), result))
+print("\n--------------------------------------------------")
+print("\n------- THANK YOU FOR USING CALCULATOR APP -------\n")
