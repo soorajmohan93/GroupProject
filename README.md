@@ -1,2 +1,5 @@
 # GroupProject
- AutomationGroupProject
+ AutomationGroupProject - Calculator APP - Sooraj and Pranav
+
+
+ Project_GN_7.py is python code 
