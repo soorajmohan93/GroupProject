@@ -5,7 +5,8 @@ Author: Group 7 - Sooraj Mohan (Student Number: 8842423), Pranav Manikandas
 
 Purpose: 
 Group Project Work for IT Automation INFO8025
-This python script is a arithemetic calculator to perform operations on two numbers. It can handle divide by zero exceptions and wrong entries from users.
+This python script is a arithemetic calculator to perform operations on two numbers. 
+It can handle divide by zero exceptions and wrong entries from user
 '''
 # Functions for arithmetic operations
 # Function to Add
@@ -13,7 +14,7 @@ def add(first, second):
     return "+", round(first + second,2)
 
 # Function to Subtract
-def substract(first, second):
+def subtract(first, second):
     return "-", round(first-second,2)
 
 # Function to Multiply
@@ -26,70 +27,90 @@ def divide(first, second):
         return "÷", round(first/second,2)
     except ZeroDivisionError: 
         return None, ZeroDivisionError
-    
-def TextSpace(width, symbol, text):
-    return symbol * ((width - len(text))//2)
-    
-maxWidth = 60
-symbol = "-"
-appName = " CALCULATOR APP "
 
-print(f"\n{symbol*maxWidth}")
-print("\n{0}{1}{2}".format(TextSpace(maxWidth, "/", appName), appName, TextSpace(maxWidth, "\\", appName)))
-print(f"\n{symbol*maxWidth}")
+# Function to centre the text messages in Calculator - it can add symbols before and after text
+def TextSpace(width, startSymbol, endSymbol, text):
+    numberOfSpace = ((width - len(text))//2)
+    return startSymbol*numberOfSpace + text + endSymbol*numberOfSpace
 
-print("\n{0}{1}".format(TextSpace(maxWidth, " ", "Select An Operation"), "Select An Operation"))
-print("\n{0}{1}".format(TextSpace(maxWidth, " ", "(1) Add"), "(1) Add"))
-print("{0}{1}".format(TextSpace(maxWidth, " ", "(2) Subtract"), "(2) Subtract"))
-print("{0}{1}".format(TextSpace(maxWidth, " ", "(3) Multiply"), "(3) Multiply"))
-print("{0}{1}".format(TextSpace(maxWidth, " ", "(4) Divide"), "(4) Divide"))
-print(f"\n{symbol*maxWidth}")
+# Execution starts here
+if __name__ == '__main__':
+    # maximum width displayed is 100 characters
+    maxWidth = 100
+    symbol = "-"
+    appName = " CALCULATOR APP " 
 
-userChoice = input("\n{0}{1}".format(TextSpace(maxWidth, " ", "Your Choice (1, 2, 3 or 4): "), "Your Choice (1, 2, 3 or 4): "))
-
-try:
-    userChoiceInt = int(userChoice)
-    if userChoiceInt not in (1,2,3,4):
-        raise ValueError()
-except ValueError:
-    message = "Invalid Input, GoodBye!"
-    symbol = "x"
+    # This prints a separation with the symbol character times the maximum width
     print(f"\n{symbol*maxWidth}")
-    print("\n{0}{1}".format(TextSpace(maxWidth, " ", message), message))
+    # App welcome message
+    print("\n{0}".format(TextSpace(maxWidth, "/", "\\", appName)))
     print(f"\n{symbol*maxWidth}")
-    exit()
 
-operationKey = {1:"addition", 2:"subtraction", 3:"multiplication", 4:"division"}
-numberCheck = True
-while numberCheck:
+    # Menu with list of operators
+    print("\n{0}".format(TextSpace(maxWidth, " ", "", "Select An Operation")))
+    print("\n{0}".format(TextSpace(maxWidth, " ", "", "(1) Add")))
+    print("{0}".format(TextSpace(maxWidth, " ", "", "(2) Subtract")))
+    print("{0}".format(TextSpace(maxWidth, " ", "", "(3) Multiply")))
+    print("{0}".format(TextSpace(maxWidth, " ", "", "(4) Divide")))
+    print(f"\n{symbol*maxWidth}")
+
+    # Prompt for user input
+    userChoice = input("\n{0}".format(TextSpace(maxWidth, " ", "", "Your Choice (1, 2, 3 or 4): ")))
+
+    # if user input is invalid - any other value than 1,2,3 or 4 then message is displayed and execution terminated
     try:
-        numberText = "Enter first number for {}: ".format(operationKey.get(userChoiceInt))
-        firstNumber = float(input("\n{0}{1}".format(TextSpace(maxWidth, " ", numberText), numberText)))
-        numberText = "Enter second number for {}: ".format(operationKey.get(userChoiceInt))
-        secondNumber = float(input("\n{0}{1}".format(TextSpace(maxWidth, " ", numberText), numberText)))
-        numberCheck = False
+        userChoiceInt = int(userChoice)
+        if userChoiceInt not in (1,2,3,4):
+            raise ValueError() # raise error incase of integer values outside 1-4
     except ValueError:
-        print("The program is expecting two numeric values! Please Try Again with Whole or decimal numbers.")
-del operationKey
+        message = "Invalid Input, GoodBye!"
+        symbol = "x"
+        print(f"\n{symbol*maxWidth}")
+        print("\n{0}".format(TextSpace(maxWidth, " ", "", message)))
+        print(f"\n{symbol*maxWidth}")
+        exit() # terminate execution
 
-print(f"\n{symbol*maxWidth}")
-if userChoiceInt == 1:
-    operation, result = add(firstNumber, secondNumber)
-elif userChoiceInt == 2:
-    operation, result = substract(firstNumber,secondNumber)
-elif userChoiceInt == 3:
-    operation, result = multiply(firstNumber,secondNumber)
-elif userChoiceInt == 4:
-    operation, result = divide(firstNumber, secondNumber)
+    # dictionary variable that maps value to operation - used when prompting values to operate
+    operationKey = {1:"addition", 2:"subtraction", 3:"multiplication", 4:"division"}
     
-if result == ZeroDivisionError:
-    resultText = "Exception Occurred: Cannot Divide By Zero!"
-else:
-    resultText = "Here is your result: {0} {1} {2} = {3}".format(round(firstNumber,2), operation, round(secondNumber,2), result)
+    # While loop used for looping until both valid values are entered
+    while True:
+        try:
+            # prompt for first number
+            numberText = "Enter first number for {}: ".format(operationKey.get(userChoiceInt))
+            firstNumber = float(input("\n{0}".format(TextSpace(maxWidth, " ", "", numberText))))
+            
+            # prompt for second number
+            numberText = "Enter second number for {}: ".format(operationKey.get(userChoiceInt))
+            secondNumber = float(input("\n{0}".format(TextSpace(maxWidth, " ", "", numberText))))
+            break # if both are valid numbers then exit loop
+        except ValueError:
+            message = "The program is expecting two numeric values! Please Try Again with Whole or decimal numbers."
+            print("\n{0}".format(TextSpace(maxWidth, " ", "", message)))
     
-print("\n{0}{1}".format(TextSpace(maxWidth, " ", resultText), resultText))
-print(f"\n{symbol*maxWidth}")
+    del operationKey # dictonary variable no longer used, hence clear it
+
+    # conditions to check input for operation and calling the appropriate function to operate
+    print(f"\n{symbol*maxWidth}")
+    if userChoiceInt == 1:
+        operation, result = add(firstNumber, secondNumber)
+    elif userChoiceInt == 2:
+        operation, result = subtract(firstNumber,secondNumber)
+    elif userChoiceInt == 3:
+        operation, result = multiply(firstNumber,secondNumber)
+    elif userChoiceInt == 4:
+        operation, result = divide(firstNumber, secondNumber)
     
-thankMessage = " THANK YOU FOR USING CALCULATOR APP "
-print("\n{0}{1}{2}".format(TextSpace(maxWidth, "/", thankMessage), thankMessage, TextSpace(maxWidth, "\\", thankMessage)))
-print(f"\n{symbol*maxWidth}")
+    # if divide function return divide by zero exception then print Cannot divide by zero message on console and exit  
+    if result == ZeroDivisionError:
+        resultText = "Exception Occurred: Cannot Divide By Zero!"
+    # else show the operands, operation and result of operation
+    else:
+        resultText = "Here is your result: {0} {1} {2} = {3}".format(round(firstNumber,2), operation, round(secondNumber,2), result)
+    # The result text is centre aligned 
+    print("\n{0}".format(TextSpace(maxWidth, " ", "", resultText)))
+    print(f"\n{symbol*maxWidth}")
+    # End execution with Thanks!
+    thankMessage = " THANK YOU FOR USING CALCULATOR APP "
+    print("\n{0}".format(TextSpace(maxWidth, "/", "\\", thankMessage)))
+    print(f"\n{symbol*maxWidth}")
