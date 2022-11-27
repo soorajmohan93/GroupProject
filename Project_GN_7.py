@@ -28,8 +28,12 @@ def divide(first, second):
         return None, ZeroDivisionError
     
 
+appName = " CALCULATOR APP "
+headingSymbol = "-" * len(appName)
+print(f"\n{headingSymbol*3}")
+print("\n{0}{1}{2}".format(headingSymbol,appName,headingSymbol))
+print(f"\n{headingSymbol*3}")
 
-print("\n--------------------------------------------------\n----------------- CALCULATOR APP -----------------\n--------------------------------------------------\n")
 userChoice = input("Select An Operation\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n\nYour Choice (1, 2, 3 or 4): ")
 
 try:
@@ -49,7 +53,7 @@ while numberCheck:
     except ValueError:
         print("The program is expecting two numeric values! Please Try Again with Whole or decimal numbers.")
 
-print("\n--------------------------------------------------\n")
+print(f"\n{headingSymbol*3}")
 if userChoiceInt == 1:
     operation, result = add(firstNumber, secondNumber)
 elif userChoiceInt == 2:
@@ -58,10 +62,10 @@ elif userChoiceInt == 3:
     operation, result = multiply(firstNumber,secondNumber)
 elif userChoiceInt == 4:
     operation, result = divide(firstNumber, secondNumber)
-    if result == ZeroDivisionError:
-        print("Exception Occurred: Cannot Divide By Zero!")
-        exit()
-
-print("Here is your result: {0} {1} {2} = {3}".format(round(firstNumber,2), operation, round(secondNumber,2), result))
-print("\n--------------------------------------------------")
-print("\n------- THANK YOU FOR USING CALCULATOR APP -------\n")
+    
+if result == ZeroDivisionError:
+    print("\nException Occurred: Cannot Divide By Zero!")
+else:
+    print("\nHere is your result: {0} {1} {2} = {3}".format(round(firstNumber,2), operation, round(secondNumber,2), result))
+print(f"\n{headingSymbol*3}")
+print("\n------ THANK YOU FOR USING CALCULATOR APP ------\n")
