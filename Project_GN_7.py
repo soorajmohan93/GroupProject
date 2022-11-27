@@ -28,11 +28,14 @@ def divide(first, second):
         return None, ZeroDivisionError
     
 
+    
+dashSeparator = "-" * 50
 appName = " CALCULATOR APP "
-headingSymbol = "-" * len(appName)
-print(f"\n{headingSymbol*3}")
-print("\n{0}{1}{2}".format(headingSymbol,appName,headingSymbol))
-print(f"\n{headingSymbol*3}")
+appNameSpace = "-" *((len(dashSeparator) - len(appName))//2)
+
+print(f"\n{dashSeparator}")
+print("\n{0}{1}{2}".format(appNameSpace, appName, appNameSpace))
+print(f"\n{dashSeparator}")
 
 userChoice = input("Select An Operation\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n\nYour Choice (1, 2, 3 or 4): ")
 
@@ -41,7 +44,11 @@ try:
     if userChoiceInt not in (1,2,3,4):
         raise ValueError()
 except ValueError:
-    print("Invalid Input, GoodBye")
+    message = "Invalid Input, GoodBye"
+    messageSpace = " " *((len(dashSeparator) - len(message))//2)
+    print(f"\n{dashSeparator}")
+    print("\n{0}{1}{2}".format(messageSpace, message, messageSpace))
+    print(f"\n{dashSeparator}")
     exit()
 
 numberCheck = True
@@ -53,7 +60,7 @@ while numberCheck:
     except ValueError:
         print("The program is expecting two numeric values! Please Try Again with Whole or decimal numbers.")
 
-print(f"\n{headingSymbol*3}")
+print(f"\n{dashSeparator}")
 if userChoiceInt == 1:
     operation, result = add(firstNumber, secondNumber)
 elif userChoiceInt == 2:
@@ -64,8 +71,14 @@ elif userChoiceInt == 4:
     operation, result = divide(firstNumber, secondNumber)
     
 if result == ZeroDivisionError:
-    print("\nException Occurred: Cannot Divide By Zero!")
+    resultText = "Exception Occurred: Cannot Divide By Zero!"
 else:
-    print("\nHere is your result: {0} {1} {2} = {3}".format(round(firstNumber,2), operation, round(secondNumber,2), result))
-print(f"\n{headingSymbol*3}")
-print("\n------ THANK YOU FOR USING CALCULATOR APP ------\n")
+    resultText = "Here is your result: {0} {1} {2} = {3}".format(round(firstNumber,2), operation, round(secondNumber,2), result)
+    
+resultTextSpace = " " *((len(dashSeparator) - len(resultText))//2)
+print("\n{0}{1}{2}".format(resultTextSpace, resultText, resultTextSpace))
+
+print(f"\n{dashSeparator}")
+thankMessage = " THANK YOU FOR USING CALCULATOR APP "
+thankMessageSpace = "-" *((len(dashSeparator) - len(thankMessage))//2)
+print("\n{0}{1}{2}".format(thankMessageSpace, thankMessage, thankMessageSpace))
