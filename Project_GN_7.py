@@ -11,27 +11,27 @@ It can handle divide by zero exceptions and wrong entries from user
 # Functions for arithmetic operations
 # Function to Add
 def add(first, second):
-    return "+", round(first + second,2)
+    return "+", round(first + second, 2)
 
 # Function to Subtract
 def subtract(first, second):
-    return "-", round(first-second,2)
+    return "-", round(first-second, 2)
 
 # Function to Multiply
 def multiply(first, second):
-    return "X", round(first * second,2)
+    return "X", round(first * second, 2)
 
 # Function to Divide - return Zero Division error exception when divided by zero
 def divide(first, second):
     try: 
-        return "÷", round(first/second,2)
+        return "÷", round(first/second ,2)
     except ZeroDivisionError: 
         return None, ZeroDivisionError
 
 # Function to centre the text messages in Calculator - it can add symbols before and after text
 def TextSpace(width, startSymbol, endSymbol, text):
-    numberOfSpace = ((width - len(text))//2)
-    return startSymbol*numberOfSpace + text + endSymbol*numberOfSpace
+    numberOfSpace = ((width - len(text)) // 2)
+    return startSymbol*numberOfSpace + text + endSymbol * numberOfSpace
 
 # Execution starts here
 if __name__ == '__main__':
@@ -41,10 +41,10 @@ if __name__ == '__main__':
     appName = " CALCULATOR APP " 
 
     # This prints a separation with the symbol character times the maximum width
-    print(f"\n{symbol*maxWidth}")
+    print(f"\n{symbol * maxWidth}")
     # App welcome message
     print("\n{0}".format(TextSpace(maxWidth, "/", "\\", appName)))
-    print(f"\n{symbol*maxWidth}")
+    print(f"\n{symbol * maxWidth}")
 
     # Menu with list of operators
     print("\n{0}".format(TextSpace(maxWidth, " ", "", "Select An Operation")))
@@ -52,7 +52,7 @@ if __name__ == '__main__':
     print("{0}".format(TextSpace(maxWidth, " ", "", "(2) Subtract")))
     print("{0}".format(TextSpace(maxWidth, " ", "", "(3) Multiply")))
     print("{0}".format(TextSpace(maxWidth, " ", "", "(4) Divide")))
-    print(f"\n{symbol*maxWidth}")
+    print(f"\n{symbol * maxWidth}")
 
     # Prompt for user input
     userChoice = input("\n{0}".format(TextSpace(maxWidth, " ", "", "Your Choice (1, 2, 3 or 4): ")))
