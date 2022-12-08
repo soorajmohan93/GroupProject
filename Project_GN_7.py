@@ -1,13 +1,14 @@
-'''
-File name: Project_GN_7.py
-Date created: 25 November 2022
-Author: Group 7 - Sooraj Mohan (Student Number: 8842423), Pranav Manikandas
+##############################################################################################################################
+# File name: Project_GN_7.py
+# Date created: 25 November 2022
+# Author: Group 7 - Sooraj Mohan (Student Number: 8842423), Pranav Manikanda das (Student Number: 8782064)
 
-Purpose: 
-Group Project Work for IT Automation INFO8025
-This python script is a arithemetic calculator to perform operations on two numbers. 
-It can handle divide by zero exceptions and wrong entries from user
-'''
+# Purpose: 
+# Group Project Work for IT Automation INFO8025
+# This python script is a arithemetic calculator to perform operations on two numbers. 
+# It can handle divide by zero exceptions and wrong entries from user
+##############################################################################################################################
+
 # Functions for arithmetic operations
 # Function to Add
 def add(first, second):
