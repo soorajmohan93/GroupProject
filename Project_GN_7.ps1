@@ -68,11 +68,14 @@ catch{
 
 # A hashtable variable to hold the operation name corresponding to the user entry - will be used to display message to user
 $operationKey = @{
-                1 = 'Addition'
-                2 = 'Subtraction'
-                3 = 'Multiplication'
-                4 = 'Division'
+                1 = 'addition'
+                2 = 'subtraction'
+                3 = 'multiplication'
+                4 = 'division'
             }
+
+# Display to confirm user's selection
+Write-Host "`r`n                                        You chose $($operationKey.$userInputInt)"
 
 #  taking user's input and type casting to float. If user enters an invalid number, the script asks user to input values again.
 do{

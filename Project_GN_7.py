@@ -39,7 +39,7 @@ if __name__ == '__main__':
     # maximum width displayed is 100 characters
     maxWidth = 100
     symbol = "-"
-    appName = " CALCULATOR APP " 
+    appName = " THE CALCULATOR APP " 
 
     # This prints a separation with the symbol character times the maximum width
     print(f"\n{symbol * maxWidth}")
@@ -71,8 +71,12 @@ if __name__ == '__main__':
         print(f"\n{symbol*maxWidth}")
         exit() # terminate execution
 
-    # dictionary variable that maps value to operation - used when prompting values to operate
+    # dictionary variable that maps value to operation - the operation name will be printed for user
     operationKey = {1:"addition", 2:"subtraction", 3:"multiplication", 4:"division"}
+    
+    # Display to confirm user's selection
+    print("\n{0}".format(TextSpace(maxWidth, " ", "", "You chose {0} operation!".format(operationKey.get(userChoiceInt)))))
+    print(f"\n{symbol*maxWidth}")
     
     # While loop used for looping until both valid values are entered
     while True:
@@ -112,6 +116,6 @@ if __name__ == '__main__':
     print("\n{0}".format(TextSpace(maxWidth, " ", "", resultText)))
     print(f"\n{symbol*maxWidth}")
     # End execution with Thanks!
-    thankMessage = " THANK YOU FOR USING CALCULATOR APP "
+    thankMessage = " THANK YOU FOR USING THE CALCULATOR APP "
     print("\n{0}".format(TextSpace(maxWidth, "/", "\\", thankMessage)))
     print(f"\n{symbol*maxWidth}")
