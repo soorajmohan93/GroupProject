@@ -5,7 +5,7 @@
 
 # Purpose: 
 # Group Project Work for IT Automation INFO8025
-# This python script is a arithemetic calculator to perform operations on two numbers. 
+# This python script is an arithemetic calculator to perform operations on two numbers. 
 # It can handle divide by zero exceptions and wrong entries from user
 ##############################################################################################################################
 

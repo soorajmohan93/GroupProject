@@ -5,7 +5,7 @@ Author: Group 7 - Sooraj Mohan (Student Number: 8842423) and Pranav Manikanda da
 
 Purpose: 
 Group Project Work for IT Automation INFO8025
-This powershell script is a arithemetic calculator to perform operations on two numbers. 
+This powershell script is an arithemetic calculator to perform operations on two numbers. 
 It can handle divide by zero exceptions and wrong entries from user
 #################################################################################################################>
 
