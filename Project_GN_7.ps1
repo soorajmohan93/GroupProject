@@ -1,7 +1,7 @@
 <#################################################################################################################
 File name: Project_GN_7.ps1
 Date created: 25 November 2022
-Author: Group 7 - Sooraj Mohan (Student Number: 8842423), Pranav Manikanda das (Student Number: 8782064)
+Author: Group 7 - Sooraj Mohan (Student Number: 8842423) and Pranav Manikanda das (Student Number: 8782064)
 
 Purpose: 
 Group Project Work for IT Automation INFO8025

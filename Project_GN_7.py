@@ -1,7 +1,7 @@
 ##############################################################################################################################
 # File name: Project_GN_7.py
 # Date created: 25 November 2022
-# Author: Group 7 - Sooraj Mohan (Student Number: 8842423), Pranav Manikanda das (Student Number: 8782064)
+# Author: Group 7 - Sooraj Mohan (Student Number: 8842423) and Pranav Manikanda das (Student Number: 8782064)
 
 # Purpose: 
 # Group Project Work for IT Automation INFO8025
@@ -11,19 +11,19 @@
 
 # Functions for arithmetic operations
 # Function to Add
-def add(first, second):
+def Add(first, second):
     return "+", round(first + second, 2)
 
 # Function to Subtract
-def subtract(first, second):
+def Subtract(first, second):
     return "-", round(first-second, 2)
 
 # Function to Multiply
-def multiply(first, second):
+def Multiply(first, second):
     return "X", round(first * second, 2)
 
 # Function to Divide - return Zero Division error exception when divided by zero
-def divide(first, second):
+def Divide(first, second):
     try: 
         return "÷", round(first/second ,2)
     except ZeroDivisionError: 
@@ -98,13 +98,13 @@ if __name__ == '__main__':
     # conditions to check input for operation and calling the appropriate function to operate
     print(f"\n{symbol*maxWidth}")
     if userChoiceInt == 1:
-        operation, result = add(firstNumber, secondNumber)
+        operation, result = Add(firstNumber, secondNumber)
     elif userChoiceInt == 2:
-        operation, result = subtract(firstNumber,secondNumber)
+        operation, result = Subtract(firstNumber,secondNumber)
     elif userChoiceInt == 3:
-        operation, result = multiply(firstNumber,secondNumber)
+        operation, result = Multiply(firstNumber,secondNumber)
     elif userChoiceInt == 4:
-        operation, result = divide(firstNumber, secondNumber)
+        operation, result = Divide(firstNumber, secondNumber)
     
     # if divide function return divide by zero exception then print Cannot divide by zero message on console and exit  
     if result == ZeroDivisionError:
